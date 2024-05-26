@@ -1,14 +1,18 @@
+// scripts.js
 
+// Function to set up the video player
 function setupVideoPlayer() {
   const video = document.querySelector('.player__video');
+
+  // Check if video element exists
+  if (!video) return;
+
   const progressBar = document.querySelector('.progress__filled');
   const toggleButton = document.querySelector('.player__button');
   const volumeSlider = document.querySelector('input[name="volume"]');
   const playbackSpeedSlider = document.querySelector('input[name="playbackRate"]');
   const rewindButton = document.querySelector('.rewind');
   const skipButton = document.querySelector('.skip');
-
-  if (!video) return;
 
   function togglePlay() {
     const method = video.paused ? 'play' : 'pause';
@@ -41,6 +45,7 @@ function setupVideoPlayer() {
     video.currentTime += 25;
   }
 
+  // Add event listeners only if the video element is available
   toggleButton.addEventListener('click', togglePlay);
   volumeSlider.addEventListener('input', adjustVolume);
   playbackSpeedSlider.addEventListener('input', adjustPlaybackSpeed);
@@ -52,4 +57,5 @@ function setupVideoPlayer() {
   video.addEventListener('timeupdate', handleProgress);
 }
 
+// Call the function to set up the video player once the DOM content is loaded
 document.addEventListener('DOMContentLoaded', setupVideoPlayer);
