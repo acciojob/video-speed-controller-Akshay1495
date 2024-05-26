@@ -17,27 +17,23 @@
 <script  src="./script.js">
   //Your code goes here
 
-	// scripts.js
+// scripts.js
 
+// Function to set up the video player
 function setupVideoPlayer() {
   const toggleButton = document.querySelector('.player__button');
   const rewindButton = document.querySelector('.rewind');
+  const video = document.querySelector('.player__video');
 
   // Check if toggleButton and rewindButton elements exist
-  if (!toggleButton || !rewindButton) return;
+  if (!toggleButton || !rewindButton || !video) return;
 
   function togglePlay() {
-    const video = document.querySelector('.player__video');
-    if (!video) return;
-
     const method = video.paused ? 'play' : 'pause';
     video[method]();
   }
 
   function rewind() {
-    const video = document.querySelector('.player__video');
-    if (!video) return;
-
     video.currentTime -= 10;
   }
 
@@ -48,6 +44,10 @@ function setupVideoPlayer() {
 
 // Call the function to set up the video player once the DOM content is loaded
 document.addEventListener('DOMContentLoaded', setupVideoPlayer);
+
+
+
+	
 </script>
 </body>
 </html>
